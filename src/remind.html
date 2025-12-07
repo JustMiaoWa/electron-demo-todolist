@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>提醒</title>
+  <link rel="stylesheet" href="./css/elementui.css">
+  <style>
+  body {
+    margin: 0;
+    background: transparent;
+    -webkit-app-region: drag;
+    font-family: sans-serif;
+  }
+
+  .box {
+    background: #1e1e1e;
+    color: #fff;
+    border-radius: 16px;
+    padding: 18px;
+    margin: 8px;
+    position: relative;
+
+    /* 呼吸灯核心 */
+    box-shadow: 0 0 12px rgba(0, 173, 255, 0.6);
+    animation: breathing 2s ease-in-out infinite;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    -webkit-app-region: no-drag;
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 14px;
+  }
+
+  .tip {
+    font-size: 13px;
+    opacity: 0.75;
+    margin-top: 6px;
+  }
+
+  /* 呼吸动画 */
+  @keyframes breathing {
+    0% {
+      box-shadow: 0 0 6px rgba(0, 173, 255, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 18px rgba(0, 173, 255, 0.9);
+    }
+    100% {
+      box-shadow: 0 0 6px rgba(0, 173, 255, 0.5);
+    }
+  }
+</style>
+</head>
+<body>
+  <div id="app">
+    <div class="box">
+      <div class="close-btn" @click="close">✖</div>
+      <div class="title">哇子提醒你<br>该 {{ taskName }} 了</div>
+      <div class="tip">30 秒后自动关闭</div>
+    </div>
+  </div>
+
+  <script src="./js/vue.js"></script>
+  <script src="./js/elementui.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          taskName: ''
+        }
+      },
+      async mounted() {
+        this.taskName = await window.api.getTaskName()
+      },
+      methods: {
+        close() {
+          window.api.closeRemind()
+        }
+      }
+    })
+  </script>
+</body>
+</html>

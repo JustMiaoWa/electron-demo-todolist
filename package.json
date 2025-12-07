@@ -1,0 +1,19 @@
+{
+  "name": "tasky",
+  "version": "1.0.0",
+  "description": "a eletron demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch index.js --exec electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^39.2.1",
+    "nanoid": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

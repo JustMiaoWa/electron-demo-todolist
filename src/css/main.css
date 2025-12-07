@@ -1,0 +1,58 @@
+html,body {
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  -webkit-app-region: drag;
+}
+.enable-click {
+  -webkit-app-region: no-drag;
+}
+.flex {
+  display: flex;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-around {
+  display: flex;
+  justify-content: space-around;
+}
+.el-container {
+  height: 100%;
+}
+.aside {
+  background-color: #f8f8f8;
+  height: 100%;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.date-box {
+  font-size: 20px;
+  color: #40bf85;
+  font-weight: 600;
+}
+.main {
+  height: 100%;
+}
+.main-header {
+  display: flex;
+  justify-content: end;
+}
+.aside-bottom {
+  margin-top: 70%;
+  gap: 10px;
+}
+.el-message-box {
+  -webkit-app-region: no-drag;
+}
